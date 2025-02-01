@@ -9,6 +9,7 @@
 	width: 100vw;
 	background-color: rgba(256, 256, 256, 0.5);
 	backdrop-filter: blur(2px);
+	z-index: 1000;
 
 	.alter-status {
 		display: flex;
@@ -21,6 +22,7 @@
 		padding: clamp(10px, 2vw, 20px);
 		background-color: rgba(17, 25, 40, 0.8);
 		border-radius: 0.5rem;
+		z-index: 1001;
 
 		.status-input {
 			display: flex;
