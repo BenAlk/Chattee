@@ -98,12 +98,12 @@
 
 	.mobile-hidden-left {
 		width: 0;
-		left: -100vw;
+		left: -101vw;
 	}
 
 	.mobile-hidden-right {
 		width: 0;
-		left: 100vw;
+		left: 101vw;
 	}
 
 	.mobile-hidden {
