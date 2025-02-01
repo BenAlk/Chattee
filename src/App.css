@@ -90,22 +90,30 @@
 }
 
 @media (max-width: 650px) {
-	.mobile-full {
-		width: 100vw;
-		left: 0;
-	}
+	.container {
+		&.mobile-container {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
 
-	.mobile-hidden-left {
-		width: 0;
-		left: -101vw;
-	}
+		.mobile-full {
+			width: 100vw;
+			left: 0;
+		}
 
-	.mobile-hidden-right {
-		width: 0;
-		left: 101vw;
-	}
+		.mobile-hidden-left {
+			width: 0;
+			left: -101vw;
+		}
 
-	.mobile-hidden {
-		width: 0;
+		.mobile-hidden-right {
+			width: 0;
+			left: 101vw;
+		}
+
+		.mobile-hidden {
+			width: 0;
+		}
 	}
 }
