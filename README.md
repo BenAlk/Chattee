@@ -1,3 +1,1 @@
-/**
-* ! Break-point 650px!
-**/
+First attempt creating a real time chap app using React.
