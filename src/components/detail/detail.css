@@ -3,55 +3,53 @@
 	flex-direction: column;
 	justify-content: space-between;
 	overflow: hidden;
+}
 
-	.icon:hover {
-		stroke: cornflowerblue;
-	}
+.icon:hover {
+	stroke: cornflowerblue;
+}
 
-	> .user {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: clamp(15px, 3vw, 30px) clamp(8px, 2vw, 20px);
-		gap: clamp(8px, 1.5vw, 15px);
-		border-bottom: 1px solid #d0d0d035;
-		position: relative;
+.current-user {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: clamp(15px, 3vw, 30px) clamp(8px, 2vw, 20px);
+	gap: clamp(8px, 1.5vw, 15px);
+	border-bottom: 1px solid #d0d0d035;
+	position: relative;
+}
 
-		> img {
-			border-radius: 50%;
-			width: 100px;
-			height: auto;
-			aspect-ratio: 1/1;
-			object-fit: cover;
-		}
+.current-user > img {
+	border-radius: 50%;
+	width: 100px;
+	height: auto;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
 
-		> .user-icon {
-			background-color: #999;
-			border-radius: 50%;
+.user-icon {
+	background-color: #999;
+	border-radius: 50%;
+}
+.user-icon > .avatar {
+	height: clamp(60px, 10vw, 100px);
+	width: clamp(60px, 10vw, 100px);
+	object-fit: cover;
+}
+.close {
+	position: absolute;
+	top: clamp(8px, 2vw, 20px);
+	right: clamp(8px, 2vw, 20px);
+	cursor: pointer;
+	width: clamp(16px, 2vw, 20px);
+	height: clamp(16px, 2vw, 20px);
+}
 
-			> .avatar {
-				height: clamp(60px, 10vw, 100px);
-				width: clamp(60px, 10vw, 100px);
-				object-fit: cover;
-			}
-		}
-
-		> .close {
-			position: absolute;
-			top: clamp(8px, 2vw, 20px);
-			right: clamp(8px, 2vw, 20px);
-			cursor: pointer;
-			width: clamp(16px, 2vw, 20px);
-			height: clamp(16px, 2vw, 20px);
-		}
-	}
-
-	.info {
-		display: flex;
-		flex-direction: column;
-		flex: 1;
-		overflow: scroll;
-	}
+.info {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	overflow: scroll;
 }
 
 .buttons {
@@ -79,12 +77,4 @@
 			}
 		}
 	}
-}
-
-.detail.user img {
-	border-radius: 50%;
-	width: 100px;
-	height: auto;
-	aspect-ratio: 1/1;
-	object-fit: cover;
 }

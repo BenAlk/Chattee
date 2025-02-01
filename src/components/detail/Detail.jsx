@@ -38,7 +38,7 @@ export const Detail = ({ className }) => {
 
 	return (
 		<div className={`detail ${className}`}>
-			<div className='user'>
+			<div className='current-user'>
 				{currentUser?.avatar ? (
 					<img src={currentUser?.avatar} className='avatar'/>
 				) : (
