@@ -1,0 +1,50 @@
+.photos {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(5px, 1vw, 10px);
+	margin-top: clamp(10px, 2vw, 20px);
+	max-height: clamp(150px, 20vw, 200px);
+	overflow: scroll;
+
+	.photo-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-top: 1px solid #d0d0d035;
+		padding-top: clamp(5px, 1vw, 10px);
+		min-width: 0;
+
+		.photo-detail {
+			display: flex;
+			align-items: center;
+			gap: clamp(10px, 2vw, 20px);
+			max-width: 90%;
+			min-width: 0;
+			flex-shrink: 1;
+
+			img {
+				width: clamp(30px, 4vw, 40px);
+				height: clamp(30px, 4vw, 40px);
+				border-radius: 0.5rem;
+				object-fit: cover;
+			}
+
+			span {
+				font-size: clamp(0.7rem, 1vw, 0.8rem);
+				color: #d0d0d0;
+				font-weight: 300;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}
+
+.no-files {
+	font-size: clamp(0.7rem, 1vw, 0.8rem);
+	color: #d0d0d0;
+	font-weight: 300;
+	text-align: center;
+	padding-top: clamp(3px, 0.5vw, 5px);
+}

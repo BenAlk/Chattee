@@ -1,0 +1,142 @@
+/* --------- Search Bar --------- */
+.search {
+	display: flex;
+	align-items: center;
+	gap: clamp(4px, 1vw, 20px);
+	padding: clamp(8px, 2vw, 20px);
+
+	.search-bar {
+		flex: 1 1 auto;
+		background-color: rgba(17, 25, 40, 0.5);
+		display: flex;
+		align-items: center;
+		gap: clamp(4px, 1.5vw, 10px);
+		border-radius: 0.5rem;
+		padding: 0.35rem;
+
+		input {
+			background-color: transparent;
+			border: none;
+			outline: none;
+			color: white;
+			flex: 1 1 auto;
+			min-width: 30px;
+			width: 100%;
+      font-size: clamp(0.7rem, 1vw, 0.9rem);
+		}
+
+		.search-icon {
+			height: clamp(16px, 2vw, 20px);
+			width: clamp(16px, 2vw, 20px);
+		}
+	}
+
+	.add-chat {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.35rem;
+		background-color: rgba(17, 25, 40, 0.5);
+		border-radius: 0.5rem;
+		cursor: pointer;
+
+		.icon {
+			width: clamp(16px, 2vw, 20px);
+			height: clamp(16px, 2vw, 20px);
+
+			&:hover {
+				stroke: cornflowerblue;
+			}
+		}
+	}
+}
+
+/*--------- Chat List ---------*/
+.chat-list {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	flex-shrink: 1;
+
+	.bottom {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex: 1;
+		overflow: hidden;
+
+		.chats {
+			flex: 1;
+			overflow-y: scroll;
+			border-top: 1px solid #d0d0d035;
+			flex-shrink: 1;
+
+			.item {
+				display: flex;
+				align-items: center;
+				gap: clamp(8px, 2vw, 20px);
+				padding: clamp(8px, 2vw, 20px);
+				border-bottom: 1px solid #d0d0d035;
+				cursor: pointer;
+				flex-shrink: 1;
+				min-width: 0;
+
+				img {
+					border-radius: 50%;
+					width: clamp(30px, 5vw, 50px);
+					height: clamp(30px, 5vw, 50px);
+					object-fit: cover;
+				}
+
+				.icon {
+					height: clamp(30px, 5vw, 50px);
+					width: clamp(30px, 5vw, 50px);
+					border-radius: 50%;
+					background-color: #999;
+					object-fit: cover;
+				}
+
+				.texts {
+					display: flex;
+					flex-direction: column;
+					gap: clamp(5px, 1vw, 10px);
+					flex-shrink: 1;
+					min-width: 0;
+
+					span {
+						font-size: clamp(1rem, 1.5vw, 1.2rem);
+						font-weight: 300;
+					}
+
+					p {
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						max-width: 100%;
+						font-size: clamp(0.9rem, 1.2vw, 1rem);
+					}
+				}
+			}
+		}
+
+		button {
+			padding: clamp(8px, 1.5vw, 10px);
+			color: white;
+			border: none;
+			border-radius: 0.5rem;
+			cursor: pointer;
+			background-color: cornflowerblue;
+			margin: clamp(10px, 2vw, 20px) clamp(5px, 1vw, 10px);
+			width: 90%;
+			max-width: 350px;
+			align-self: center;
+			font-size: clamp(0.9rem, 1.2vw, 1rem);
+
+			&:hover {
+				background-color: rgba(100, 149, 237, 0.8);
+			}
+		}
+	}
+}

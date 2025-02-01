@@ -1,0 +1,97 @@
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(256, 256, 256, 0.5);
+	backdrop-filter: blur(2px);
+
+	.add-user {
+		display: flex;
+		flex-direction: column;
+		width: max-content;
+		height: max-content;
+		padding: clamp(10px, 2vw, 20px);
+		background-color: rgba(17, 25, 40, 0.8);
+		border-radius: 0.5rem;
+
+		h2 {
+			margin: 0 auto clamp(10px, 2vw, 20px);
+			font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+		}
+
+		input {
+			padding: clamp(8px, 1.5vw, 10px) clamp(10px, 2vw, 20px);
+			border-radius: 0.5rem;
+			border: none;
+			outline: none;
+			height: clamp(1.75rem, 2.5vw, 2rem);
+			font-size: clamp(0.9rem, 1.2vw, 1rem);
+		}
+	}
+
+	.users-list {
+		margin-top: clamp(10px, 2vw, 20px);
+
+		.user {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: clamp(10px, 2vw, 20px);
+			padding: clamp(5px, 1vw, 10px);
+
+			.detail {
+				display: flex;
+				flex-direction: row;
+				justify-content: start;
+				align-items: center;
+				gap: clamp(10px, 2vw, 20px);
+
+				img {
+					width: clamp(30px, 5vw, 50px);
+					height: clamp(30px, 5vw, 50px);
+					border-radius: 50%;
+					object-fit: cover;
+				}
+
+				.avatar {
+					width: clamp(30px, 5vw, 50px);
+					height: clamp(30px, 5vw, 50px);
+					border-radius: 50%;
+					object-fit: cover;
+					background-color: #999;
+				}
+			}
+
+			button {
+				padding: clamp(3px, 0.5vw, 5px);
+				border-radius: 0.5rem;
+				background-color: cornflowerblue;
+				color: white;
+				border: none;
+				cursor: pointer;
+				height: clamp(1.75rem, 2.5vw, 2rem);
+				margin: 0;
+				width: clamp(60px, 8vw, 80px);
+				font-size: clamp(0.9rem, 1.2vw, 1rem);
+
+				&:hover {
+					background-color: rgba(100, 149, 237, 0.8);
+				}
+			}
+		}
+
+		.loading {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: clamp(0.9rem, 1.2vw, 1rem);
+			padding: clamp(10px, 2vw, 20px);
+			margin-top: clamp(10px, 2vw, 20px);
+		}
+	}
+}

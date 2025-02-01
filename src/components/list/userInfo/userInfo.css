@@ -1,0 +1,42 @@
+.user-info {
+	padding: clamp(8px, 2vw, 20px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.user {
+		display: flex;
+		align-items: center;
+		gap: clamp(8px, 2vw, 20px);
+
+		img {
+			border-radius: 50%;
+			width: clamp(30px, 5vw, 50px);
+			height: clamp(30px, 5vw, 50px);
+			object-fit: cover;
+		}
+
+		.avatar {
+			border-radius: 50%;
+			width: clamp(30px, 5vw, 50px);
+			height: clamp(30px, 5vw, 50px);
+			object-fit: cover;
+			background-color: #999;
+		}
+	}
+
+	.icons {
+		display: flex;
+		gap: clamp(10px, 2vw, 20px);
+
+		.user-info-icon {
+			width: clamp(16px, 2vw, 20px);
+			height: clamp(16px, 2vw, 20px);
+			cursor: pointer;
+
+			&:hover {
+				stroke: cornflowerblue;
+			}
+		}
+	}
+}

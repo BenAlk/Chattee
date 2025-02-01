@@ -1,0 +1,242 @@
+.chat {
+	display: flex;
+	flex-direction: column;
+	border-left: 1px solid #d0d0d035;
+	border-right: 1px solid #d0d0d035;
+	height: 100%;
+  min-width: 0;
+  overflow: hidden;
+
+	.top {
+		padding: clamp(8px, 2vw, 20px);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid #d0d0d035;
+
+		.user {
+			display: flex;
+			align-items: center;
+			gap: clamp(8px, 2vw, 20px);
+
+			img {
+				height: clamp(30px, 5vw, 50px);
+				width: clamp(30px, 5vw, 50px);
+				border-radius: 50%;
+				object-fit: cover;
+			}
+
+			.user-icon {
+				background-color: #999;
+				border-radius: 50%;
+
+				.avatar {
+					height: clamp(40px, 6vw, 60px);
+					width: clamp(40px, 6vw, 60px);
+				}
+			}
+
+			.texts {
+				display: flex;
+				flex-direction: column;
+				gap: clamp(3px, 1vw, 5px);
+
+				span {
+					font-size: clamp(1rem, 1.5vw, 1.2rem);
+					font-weight: 700;
+				}
+
+				p {
+					font-size: clamp(0.7rem, 1vw, 0.8rem);
+					font-weight: 300;
+					color: #d0d0d0;
+				}
+			}
+		}
+
+		.icons {
+			display: flex;
+			gap: clamp(10px, 2vw, 20px);
+
+			.icon {
+				height: clamp(16px, 2vw, 20px);
+				width: clamp(16px, 2vw, 20px);
+				cursor: pointer;
+
+				&:hover {
+					stroke: cornflowerblue;
+				}
+			}
+		}
+	}
+
+	.center {
+		display: flex;
+		flex-direction: column;
+		gap: clamp(10px, 2vw, 20px);
+		padding: clamp(8px, 2vw, 20px);
+		margin-top: auto;
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+
+		.message {
+			display: flex;
+			gap: clamp(8px, 2vw, 20px);
+      margin-right: 100px;
+			.user-img {
+				height: clamp(30px, 5vw, 50px);
+				width: clamp(30px, 5vw, 50px);
+				border-radius: 50%;
+				object-fit: cover;
+			}
+
+			.user-icon {
+				.avatar {
+					border-radius: 50%;
+					background-color: #999;
+					height: clamp(20px, 3vw, 30px);
+					width: clamp(20px, 3vw, 30px);
+				}
+			}
+
+			.texts {
+				display: flex;
+				width: 100%;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: clamp(3px, 1vw, 5px);
+
+				img {
+					max-width: clamp(200px, 30vw, 275px);
+					max-height: clamp(200px, 30vw, 275px);
+					border-radius: 10px;
+					object-fit: contain;
+					align-self: flex-start;
+					cursor: pointer;
+				}
+
+				p {
+					padding: clamp(8px, 1.5vw, 10px) clamp(10px, 2vw, 20px);
+					background-color: rgba(17, 25, 40, 0.3);
+					border-radius: 0.6rem;
+					word-break: break-word;
+					overflow-wrap: break-word;
+					align-self: start;
+				}
+
+				.timestamp {
+					display: flex;
+					justify-content: flex-start;
+
+					span {
+						font-size: clamp(0.7rem, 1vw, 0.8rem);
+					}
+				}
+			}
+
+			&.own {
+        margin-left: 100px;
+        margin-right: 0;
+				align-self: flex-end;
+				.texts {
+					p {
+						background-color: cornflowerblue;
+						align-self: end;
+					}
+
+					img {
+						align-self: flex-end;
+					}
+
+					.timestamp {
+						width: 100%;
+						justify-content: flex-end;
+					}
+				}
+			}
+		}
+	}
+
+	.bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: clamp(8px, 2vw, 20px);
+		border-top: 1px solid #d0d0d035;
+		gap: clamp(10px, 2vw, 20px);
+
+
+    .icons {
+      display: flex;
+			position: relative;
+      height: clamp(16px, 2vw, 20px);
+      gap: clamp(10px, 2vw, 20px);
+      .icon {
+        height: clamp(16px, 2vw, 20px);
+        width: clamp(16px, 2vw, 20px);
+        cursor: pointer;
+
+        &:hover {
+          stroke: cornflowerblue;
+        }
+      }
+
+      .emoji-picker {
+        position: absolute;
+        bottom: 50px;
+        left: -50px;
+      }
+    }
+		.textarea-container {
+			display: flex;
+			flex-direction: column-reverse;
+			flex: 1;
+      min-width: 0;
+
+			textarea {
+				flex: 1;
+				background-color: rgba(17, 25, 40, 0.5);
+				border: none;
+				outline: none;
+				color: white;
+				border-radius: 0.5rem;
+				padding: clamp(0.35rem, 1vw, 0.45rem);
+				font-size: clamp(0.9rem, 1.2vw, 1rem);
+				resize: none;
+				max-height: 2rem;
+
+				&:focus {
+					border: 1px solid cornflowerblue;
+				}
+
+				&:disabled {
+					opacity: 0.5;
+					cursor: not-allowed;
+				}
+			}
+		}
+		}
+
+		.send-button {
+			background-color: cornflowerblue;
+			color: white;
+			padding: clamp(0.35rem, 1vw, 0.45rem) clamp(1rem, 1.5vw, 1.3rem);
+			border: none;
+			outline: none;
+			border-radius: 0.5rem;
+			cursor: pointer;
+			font-size: clamp(0.9rem, 1.2vw, 1rem);
+      min-width: 30px;
+
+			&:hover {
+				background-color: rgba(100, 149, 237, 0.8);
+			}
+
+			&:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+			}
+		}
+	}
+}
