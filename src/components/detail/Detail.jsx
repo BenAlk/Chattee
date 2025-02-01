@@ -18,7 +18,6 @@ export const Detail = ({ className }) => {
 		isReceiverBlocked,
 		changeBlock,
 		toggleDetail,
-		detailVisible,
 	} = useChatStore()
 	const { images, loading, error } = useImages({ chatId })
 
@@ -41,7 +40,7 @@ export const Detail = ({ className }) => {
 		<div className={`detail ${className}`}>
 			<div className='user'>
 				{currentUser?.avatar ? (
-					<img src={currentUser?.avatar} />
+					<img src={currentUser?.avatar} className='avatar'/>
 				) : (
 					<div className='user-icon'>
 						<User className='avatar' />
