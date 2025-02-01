@@ -2,13 +2,13 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-  overflow: hidden;
+	overflow: hidden;
 
-  .icon:hover {
+	.icon:hover {
 		stroke: cornflowerblue;
 	}
 
-  .user {
+	.user {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -17,25 +17,25 @@
 		border-bottom: 1px solid #d0d0d035;
 		position: relative;
 
-    img {
+		img {
 			border-radius: 50%;
-			width: clamp(60px, 10vw, 100px);
-			height: clamp(60px, 10vw, 100px);
+			width: max(60px, min(10vw, 100px));
+			height: max(60px, min(10vw, 100px));
 			object-fit: cover;
 		}
 
-    .user-icon {
+		.user-icon {
 			background-color: #999;
 			border-radius: 50%;
 
-      .avatar {
+			.avatar {
 				height: clamp(60px, 10vw, 100px);
 				width: clamp(60px, 10vw, 100px);
 				object-fit: cover;
 			}
 		}
 
-    .close {
+		.close {
 			position: absolute;
 			top: clamp(8px, 2vw, 20px);
 			right: clamp(8px, 2vw, 20px);
@@ -45,7 +45,7 @@
 		}
 	}
 
-  .info {
+	.info {
 		display: flex;
 		flex-direction: column;
 		flex: 1;
@@ -58,7 +58,7 @@
 	flex-direction: column;
 	padding: clamp(8px, 2vw, 20px);
 
-  button {
+	button {
 		padding: clamp(8px, 1.5vw, 10px);
 		background-color: darkred;
 		color: white;
@@ -67,11 +67,11 @@
 		cursor: pointer;
 		font-size: clamp(0.9rem, 1.2vw, 1rem);
 
-    &:hover {
+		&:hover {
 			background-color: maroon;
 		}
 
-    &.block {
+		&.block {
 			&:disabled {
 				cursor: not-allowed;
 				opacity: 0.5;
