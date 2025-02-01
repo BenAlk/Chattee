@@ -1,9 +1,14 @@
+.detail-container {
+	overflow: hidden;
+	min-width: 0;
+}
+
 .detail {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	overflow: hidden;
-  height: 100%;
+	height: 100%;
 }
 
 .icon:hover {
