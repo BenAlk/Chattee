@@ -8,7 +8,7 @@
 		stroke: cornflowerblue;
 	}
 
-	.user {
+	> .user {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -17,13 +17,7 @@
 		border-bottom: 1px solid #d0d0d035;
 		position: relative;
 
-		.avatar {
-			height: clamp(60px, 10vw, 100px);
-			width: clamp(60px, 10vw, 100px);
-			object-fit: cover;
-		}
-
-		img {
+		> img {
 			border-radius: 50%;
 			width: 100px;
 			height: auto;
@@ -31,18 +25,18 @@
 			object-fit: cover;
 		}
 
-		.user-icon {
+		> .user-icon {
 			background-color: #999;
 			border-radius: 50%;
 
-			.avatar {
+			> .avatar {
 				height: clamp(60px, 10vw, 100px);
 				width: clamp(60px, 10vw, 100px);
 				object-fit: cover;
 			}
 		}
 
-		.close {
+		> .close {
 			position: absolute;
 			top: clamp(8px, 2vw, 20px);
 			right: clamp(8px, 2vw, 20px);
