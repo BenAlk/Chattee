@@ -1,8 +1,6 @@
 .container {
-	height: 100vh;
-
-	width: 100vw;
-
+	height: 100dvh;
+	width: 100dvw;
 	background-color: rgba(17, 25, 40, 0.85);
 	border: 1px solid rgba(256, 256, 256, 0.2);
 	display: flex;
@@ -10,51 +8,47 @@
 	isolation: isolate;
 	contain: layout size;
 }
+
 .loading {
 	padding: 50px;
 	font-size: 36px;
 	border-radius: 10px;
 	background-color: rgba(17, 25, 40, 0.9);
 }
+
 .pane-list {
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	width: 100vw;
-	width: 100dvw;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	overflow: hidden;
 	&.third-left {
 		width: 33vw;
-		width: 33dvw;
 	}
 	&.hidden-left {
 		width: 0;
 	}
 	&.quarter-left {
 		width: 25vw;
-		width: 25dvw;
 	}
 }
+
 .pane-chat {
 	position: absolute;
 	top: 0;
 	left: 100vw;
-	left: 100dvw;
 	width: 0;
 	bottom: 0;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	&.two-third-right {
 		left: 33vw;
-		left: 33dvw;
 		width: 67vw;
-		width: 67dvw;
 	}
 	&.two-third-left {
 		left: 0;
 		width: 67vw;
-		width: 67dvw;
 	}
 	&.full-screen {
 		left: 0;
@@ -62,32 +56,27 @@
 	}
 	&.half-center {
 		left: 25vw;
-		left: 25dvw;
 		width: 50vw;
-		width: 50dvw;
 	}
 }
+
 .pane-detail {
 	position: absolute;
 	top: 0;
 	left: 100vw;
-	left: 100dvw;
 	bottom: 0;
 	width: 0;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	&.quarter-right {
 		left: 75vw;
-		left: 75dvw;
 		width: 25vw;
-		width: 25dvw;
 	}
 	&.third-right {
 		left: 67vw;
-		left: 67dvw;
 		width: 33vw;
-		width: 33dvw;
 	}
 }
+
 /* Login animation */
 .login-enter {
 	opacity: 0;
@@ -98,22 +87,23 @@
 	transform: translateX(0);
 	transition: opacity 300ms, transform 300ms;
 }
+
 @media (max-width: 650px) {
 	.mobile-full {
 		width: 100vw;
-		width: 100dvw;
 		left: 0;
 	}
+
 	.mobile-hidden-left {
 		width: 0;
 		left: -101vw;
-		left: -101dvw;
 	}
+
 	.mobile-hidden-right {
 		width: 0;
 		left: 101vw;
-		left: 101dvw;
 	}
+
 	.mobile-hidden {
 		width: 0;
 	}
