@@ -1,5 +1,5 @@
 .container {
-	height: 100vh;
+	height: 100dvh;
 	min-height: -webkit-fill-available;
 	width: 100vw;
 	background-color: rgba(17, 25, 40, 0.85);
