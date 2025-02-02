@@ -44,9 +44,9 @@ export const AddUser = ({ addMode, setAddMode }) => {
 				const userRef = collection(db, 'users')
 				const q = query(
 					userRef,
-					where('username', '>=', searchTerm),
-					where('username', '<=', searchTerm + '\uf8ff'),
-					orderBy('username')
+					where('usernameLower', '>=', searchTerm.toLowerCase()),
+					where('usernameLower', '<=', searchTerm.toLowerCase() + '\uf8ff'),
+					orderBy('usernameLower')
 				)
 
 				const querySnapshot = await getDocs(q)
@@ -88,9 +88,7 @@ export const AddUser = ({ addMode, setAddMode }) => {
 			const userChatsDoc = await getDoc(doc(userChatsRef, currentUser.id))
 			const userChats = userChatsDoc.data()?.chats || []
 
-			const existingChat = userChats.find(
-				(chat) => chat.receiverId === user.id
-			)
+			const existingChat = userChats.find((chat) => chat.receiverId === user.id)
 
 			if (existingChat) {
 				changeChat(existingChat.chatId, user)

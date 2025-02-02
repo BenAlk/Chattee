@@ -2,7 +2,14 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 } from 'firebase/auth'
-import { doc, setDoc } from 'firebase/firestore'
+import {
+	collection,
+	doc,
+	getDocs,
+	query,
+	setDoc,
+	where,
+} from 'firebase/firestore'
 import { User } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
@@ -39,6 +46,16 @@ export const Login = () => {
 		const formData = new FormData(e.target)
 		const { username, email, password } = Object.fromEntries(formData)
 		try {
+			const usersRef = collection(db, 'users')
+			const q = query(
+				usersRef,
+				where('usernameLower', '==', username.toLowerCase())
+			)
+			const querySnapshot = await getDocs(q)
+
+			if (!querySnapshot.empty) {
+				throw new Error('Username already exists')
+			}
 			let imgURL = null
 			const response = await createUserWithEmailAndPassword(
 				auth,
@@ -50,6 +67,7 @@ export const Login = () => {
 			}
 			await setDoc(doc(db, 'users', response.user.uid), {
 				username,
+				usernameLower: username.toLowerCase(),
 				email,
 				status: null,
 				avatar: imgURL || null,
