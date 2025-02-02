@@ -1,5 +1,5 @@
 .container {
-	height: 100svh;
+	height: 100vh;
 	min-height: -webkit-fill-available;
 	width: 100vw;
 	background-color: rgba(17, 25, 40, 0.85);
@@ -94,15 +94,15 @@
 }
 
 @media (max-width: 1000px) {
-  .pane-list {
-    padding: 0 20%;
-  }
+	.pane-list {
+		padding: 0 20%;
+	}
 }
 
 @media (max-width: 800px) {
-  .pane-list {
-    padding: 0;
-  }
+	.pane-list {
+		padding: 0;
+	}
 }
 
 @media (max-width: 650px) {
