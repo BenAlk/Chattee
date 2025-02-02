@@ -80,20 +80,40 @@
 				flex-shrink: 1;
 				min-width: 0;
 
-				img {
-					border-radius: 50%;
-					width: clamp(30px, 5vw, 50px);
-					height: clamp(30px, 5vw, 50px);
-					object-fit: cover;
-				}
+        .user-avatar-container {
+          position: relative;
 
-				.icon {
-					height: clamp(30px, 5vw, 50px);
-					width: clamp(30px, 5vw, 50px);
-					border-radius: 50%;
-					background-color: #999;
-					object-fit: cover;
-				}
+          img {
+            border-radius: 50%;
+            width: clamp(30px, 5vw, 50px);
+            height: clamp(30px, 5vw, 50px);
+            object-fit: cover;
+          }
+
+          .icon {
+            height: clamp(30px, 5vw, 50px);
+            width: clamp(30px, 5vw, 50px);
+            border-radius: 50%;
+            background-color: #999;
+            object-fit: cover;
+          }
+
+          .online-status {
+            bottom: 5px;
+            right: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid black;
+            position: absolute;
+            &.online {
+              background-color: green;
+            }
+            &.offline {
+              background-color: grey;
+            }
+          }
+        }
 
 				.texts {
 					display: flex;

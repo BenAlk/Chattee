@@ -1,15 +1,18 @@
-import { Minus, Plus, Search, User } from 'lucide-react'
+import { ref, set } from 'firebase/database'
+import { Search, User } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useIsMobile } from '../../../components/hooks/useIsMobile'
 import { useChatStore } from '../../../lib/chatStore'
-import { auth } from '../../../lib/firebase'
+import { auth, realtimeDb } from '../../../lib/firebase'
 import { useUserStore } from '../../../lib/userStore'
+import { setupOnlineStatusTracking } from '../../../lib/utils/setupOnlineStatusTracking'
 import { AddUser } from './addUser/AddUser'
 import './chatList.css'
 
 export const ChatList = () => {
 	const [addMode, setAddMode] = useState(false)
 	const [search, setSearch] = useState('')
+	const [onlineStatuses, setOnlineStatuses] = useState({})
 	const isMobile = useIsMobile()
 
 	const { currentUser, clearUser } = useUserStore()
@@ -20,11 +23,53 @@ export const ChatList = () => {
 		initializeChatList()
 	}, [currentUser?.id])
 
+	useEffect(() => {
+		if (!chatList.length || !currentUser) return
+		const cleanupFunctions = []
+
+		const currentUserStatusRef = ref(realtimeDb, `/status/${currentUser.id}`)
+		set(currentUserStatusRef, {
+			status: 'online',
+			lastSeen: new Date().toISOString(),
+		})
+
+		const initialStatuses = {}
+		chatList.forEach((chat) => {
+			initialStatuses[chat.user.id] = false
+		})
+		setOnlineStatuses(initialStatuses)
+
+		chatList.forEach((chat) => {
+			if (!chat.user.id) return
+
+			const cleanup = setupOnlineStatusTracking(
+				chat.user.id,
+				(userId, isOnline) => {
+					setOnlineStatuses((prev) => ({
+						...prev,
+						[userId]: isOnline,
+					}))
+				}
+			)
+			cleanupFunctions.push(cleanup)
+		})
+
+		return () => {
+			cleanupFunctions.forEach((cleanup) => cleanup && cleanup())
+		}
+	}, [chatList, currentUser])
+
 	const filteredChats = chatList.filter((chat) =>
 		chat.user.username.toLowerCase().includes(search.toLowerCase())
 	)
 
-	const handleLogout = () => {
+	const handleLogout = async () => {
+		const userStatusRef = ref(realtimeDb, `/status/${currentUser.id}`)
+		await set(userStatusRef, {
+			status: 'offline',
+			lastSeen: new Date().toISOString(),
+		})
+
 		auth.signOut()
 		clearUser()
 	}
@@ -69,13 +114,20 @@ export const ChatList = () => {
 										: 'cornflowerblue',
 							}}
 						>
-							{chat.user.blocked.includes(currentUser.id) ? (
-								<User className='icon' />
-							) : chat.user.avatar ? (
-								<img src={chat.user.avatar} />
-							) : (
-								<User className='icon' />
-							)}
+							<div className='user-avatar-container'>
+								{chat.user.blocked.includes(currentUser.id) ? (
+									<User className='icon' />
+								) : chat.user.avatar ? (
+									<img src={chat.user.avatar} />
+								) : (
+									<User className='icon' />
+								)}
+								<div
+									className={`online-status ${
+										onlineStatuses[chat.user.id] ? 'online' : 'offline'
+									}`}
+								/>
+							</div>
 							<div className='texts'>
 								<span>
 									{chat.user.blocked.includes(currentUser.id)
