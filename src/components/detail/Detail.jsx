@@ -62,14 +62,14 @@ export const Detail = ({ className }) => {
 					</div>
 				</div>
 				<div className='info'>
-					<Dropdown title='Shared Files'>
+					<Dropdown title='This Chat Images'>
 						<SharedFiles
 							files={images}
 							isLoading={loading}
 							error={error}
 						/>
 					</Dropdown>
-					<Dropdown title='Uploaded Files'>
+					<Dropdown title='All images.'>
 						<UploadedFiles />
 					</Dropdown>
 				</div>
