@@ -9,6 +9,7 @@ import {
 	Smile,
 	User,
 } from 'lucide-react'
+import PropTypes from 'prop-types'
 import { useEffect, useRef, useState } from 'react'
 import { useChatStore } from '../../lib/chatStore'
 import { db } from '../../lib/firebase'
@@ -298,4 +299,8 @@ export const Chat = ({ className }) => {
 			</div>
 		</div>
 	)
+}
+
+Chat.propTypes = {
+	className: PropTypes.string,
 }

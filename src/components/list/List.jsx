@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { ChatList } from './chatList/ChatList'
 import './list.css'
 import { UserInfo } from './userInfo/UserInfo'
@@ -9,4 +10,8 @@ export const List = ({ className }) => {
 			<ChatList />
 		</div>
 	)
+}
+
+List.propTypes = {
+	className: PropTypes.string,
 }

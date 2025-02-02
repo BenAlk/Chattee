@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { arrayRemove, arrayUnion, doc, updateDoc } from 'firebase/firestore'
 import { User, X } from 'lucide-react'
 import { useChatStore } from '../../lib/chatStore'
@@ -62,7 +63,7 @@ export const Detail = ({ className }) => {
 					</div>
 				</div>
 				<div className='info'>
-					<Dropdown title={`Shared images with ${user.username}`}>
+					<Dropdown title={`Shared images with ${user?.username}`}>
 						<SharedFiles
 							files={images}
 							isLoading={loading}
@@ -89,4 +90,8 @@ export const Detail = ({ className }) => {
 			</div>
 		</div>
 	)
+}
+
+Detail.propTypes = {
+	className: PropTypes.string,
 }

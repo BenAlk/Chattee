@@ -103,7 +103,7 @@ export const ChatList = () => {
 					{filteredChats.map((chat) => (
 						<div
 							className='item'
-							key={chat.chatId}
+							key={chat?.chatId}
 							onClick={() => handleSelectChat(chat)}
 							style={{
 								backgroundColor:
@@ -115,26 +115,26 @@ export const ChatList = () => {
 							}}
 						>
 							<div className='user-avatar-container'>
-								{chat.user.blocked.includes(currentUser.id) ? (
+								{chat?.user.blocked.includes(currentUser.id) ? (
 									<User className='icon' />
-								) : chat.user.avatar ? (
-									<img src={chat.user.avatar} />
+								) : chat?.user.avatar ? (
+									<img src={chat?.user.avatar} />
 								) : (
 									<User className='icon' />
 								)}
 								<div
 									className={`online-status ${
-										onlineStatuses[chat.user.id] ? 'online' : 'offline'
+										onlineStatuses[chat?.user.id] ? 'online' : 'offline'
 									}`}
 								/>
 							</div>
 							<div className='texts'>
 								<span>
-									{chat.user.blocked.includes(currentUser.id)
+									{chat?.user.blocked.includes(currentUser.id)
 										? 'User'
-										: chat.user.username}
+										: chat?.user.username}
 								</span>
-								<p>{chat.lastMessage}</p>
+								<p>{chat?.lastMessage}</p>
 							</div>
 						</div>
 					))}
