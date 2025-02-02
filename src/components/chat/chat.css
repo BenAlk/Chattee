@@ -90,6 +90,9 @@
 			}
 
 			.user-icon {
+        height: clamp(20px, 3vw, 30px);
+        width: clamp(20px, 3vw, 30px);
+
 				.avatar {
 					border-radius: 50%;
 					background-color: #999;

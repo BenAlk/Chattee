@@ -50,7 +50,7 @@ export const ChatList = () => {
 					className='add-chat'
 					onClick={() => setAddMode((prev) => !prev)}
 				>
-					{!addMode ? <Plus className='icon' /> : <Minus className='icon' />}
+					New Chat
 				</div>
 			</div>
 			<div className='bottom'>

@@ -1,6 +1,14 @@
 import EmojiPicker from 'emoji-picker-react'
 import { arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore'
-import { Image, Info, Smile, User, EllipsisVertical, ArrowLeftFromLine } from 'lucide-react'
+import {
+	Image,
+	PanelLeftClose,
+	PanelLeftOpen,
+	PanelRightClose,
+	PanelRightOpen,
+	Smile,
+	User,
+} from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { useChatStore } from '../../lib/chatStore'
 import { db } from '../../lib/firebase'
@@ -8,7 +16,7 @@ import { uploadWithMetadata } from '../../lib/upload'
 import { useUserStore } from '../../lib/userStore'
 import './chat.css'
 
-export const Chat = ({className}) => {
+export const Chat = ({ className }) => {
 	const [open, setOpen] = useState(false)
 	const [text, setText] = useState('')
 	const [img, setImg] = useState({
@@ -24,7 +32,9 @@ export const Chat = ({className}) => {
 		isCurrentUserBlocked,
 		isReceiverBlocked,
 		toggleDetail,
-    toggleList,
+		toggleList,
+		detailVisible,
+		listVisible,
 	} = useChatStore()
 
 	const endRef = useRef(null)
@@ -142,14 +152,26 @@ export const Chat = ({className}) => {
 		}
 	}, [open, setOpen])
 
-    const handleOpenImage = (url) => {
-			window.open(url, '_blank')
-		}
+	const handleOpenImage = (url) => {
+		window.open(url, '_blank')
+	}
 
 	return (
 		<div className={`chat ${className}`}>
 			<div className='top'>
-				<EllipsisVertical onClick={toggleList} />
+				<div className='icons'>
+					{listVisible ? (
+						<PanelLeftClose
+							className='icon'
+							onClick={toggleList}
+						/>
+					) : (
+						<PanelLeftOpen
+							className='icon'
+							onClick={toggleList}
+						/>
+					)}
+				</div>
 				<div className='user'>
 					{user?.avatar ? (
 						<img src={user?.avatar} />
@@ -164,10 +186,17 @@ export const Chat = ({className}) => {
 					</div>
 				</div>
 				<div className='icons'>
-					<EllipsisVertical
-						className='icon'
-						onClick={() => toggleDetail()}
-					/>
+					{detailVisible ? (
+						<PanelRightClose
+							className='icon'
+							onClick={toggleDetail}
+						/>
+					) : (
+						<PanelRightOpen
+							className='icon'
+							onClick={toggleDetail}
+						/>
+					)}
 				</div>
 			</div>
 			<div className='center'>
@@ -205,7 +234,6 @@ export const Chat = ({className}) => {
 								{formatTimeStamp(message?.createdAt)}
 							</div>
 						</div>
-
 					</div>
 				))}
 				{img?.url && (

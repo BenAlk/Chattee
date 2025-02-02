@@ -22,7 +22,7 @@
 			flex: 1 1 auto;
 			min-width: 30px;
 			width: 100%;
-      font-size: clamp(0.7rem, 1vw, 0.9rem);
+			font-size: clamp(0.7rem, 1vw, 0.9rem);
 		}
 
 		.search-icon {
@@ -35,18 +35,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.35rem;
 		background-color: rgba(17, 25, 40, 0.5);
 		border-radius: 0.5rem;
 		cursor: pointer;
+    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    padding: 6px 10px;
 
-		.icon {
-			width: clamp(16px, 2vw, 20px);
-			height: clamp(16px, 2vw, 20px);
-
-			&:hover {
-				stroke: cornflowerblue;
-			}
+		&:hover {
+			color: cornflowerblue;
 		}
 	}
 }
@@ -58,6 +54,8 @@
 	flex-direction: column;
 	overflow: hidden;
 	flex-shrink: 1;
+	border-left: 1px solid #d0d0d035;
+	border-right: 1px solid #d0d0d035;
 
 	.bottom {
 		display: flex;

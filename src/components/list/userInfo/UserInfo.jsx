@@ -1,4 +1,4 @@
-import { Ellipsis, User, X } from 'lucide-react'
+import { PencilLine, User, X } from 'lucide-react'
 import { useState } from 'react'
 import { useUserStore } from '../../../lib/userStore'
 import { useChatStore } from '../../../lib/chatStore'
@@ -24,7 +24,7 @@ export const UserInfo = () => {
 				</div>
 			</div>
 			<div className='icons'>
-				<Ellipsis
+				<PencilLine
 					className='user-info-icon'
 					onClick={() => setStatusMode((prev) => !prev)}
 				/>
